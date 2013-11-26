@@ -1,0 +1,44 @@
+# Project: COP3530 Assignment 3
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Arraylist.o ChainNode.o IOcode.o main2.o Myexception.o Chain.o
+LINKOBJ  = Arraylist.o ChainNode.o IOcode.o main2.o Myexception.o Chain.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = "COP3530 Assignment 3.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Arraylist.o: Arraylist.cpp
+	$(CPP) -c Arraylist.cpp -o Arraylist.o $(CXXFLAGS)
+
+ChainNode.o: ChainNode.cpp
+	$(CPP) -c ChainNode.cpp -o ChainNode.o $(CXXFLAGS)
+
+IOcode.o: IOcode.cpp
+	$(CPP) -c IOcode.cpp -o IOcode.o $(CXXFLAGS)
+
+main2.o: main2.cpp
+	$(CPP) -c main2.cpp -o main2.o $(CXXFLAGS)
+
+Myexception.o: Myexception.cpp
+	$(CPP) -c Myexception.cpp -o Myexception.o $(CXXFLAGS)
+
+Chain.o: Chain.cpp
+	$(CPP) -c Chain.cpp -o Chain.o $(CXXFLAGS)
